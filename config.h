@@ -25,10 +25,17 @@ static const char col_gray2[]       = "#504945";
 static const char col_gray3[]       = "#ebdbb2";
 static const char col_gray4[]       = "#282828";
 static const char col_cyan[]        = "#d3869b";
+static const char col_black[]       = "#1d2021";
+static const char col_red[]         = "#fb4934";
+static const char col_yellow[]      = "#fabd2f";
+static const char col_white[]       = "#ebdbb2";
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	/*					fg         bg          border   */
+	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
+	[SchemeSel]  =	 { col_gray4, col_cyan,   col_cyan },
+	[SchemeWarn] =	 { col_black, col_yellow, col_red },
+	[SchemeUrgent]=	 { col_white, col_red,    col_red },
 };
 
 /* tagging */
