@@ -659,9 +659,14 @@ checkotherwm(void)
 void
 cleanup(void)
 {
-	Layout foo = { "", NULL };
 	Monitor *m;
+	Layout foo = { "", NULL };
 	size_t i;
+
+	for (m = mons; m; m = m->next)
+		persistmonitorstate(m);
+
+
 	selmon->lt[selmon->sellt] = &foo;
 	for (m = mons; m; m = m->next)
 		while (m->stack)
@@ -1689,12 +1694,7 @@ void
 quit(const Arg *arg)
 {
 	restart = arg->i;
-	Monitor *m;
 	running = 0;
-
-	for (m = mons; m && !running; m = m->next)
-		persistmonitorstate(m);
-
 }
 
 Monitor *
